@@ -23,7 +23,7 @@ ext {
     APP_BIN_NAME = "$APP_NAME-$VERSION-all.jar"
     CONFIG_DIR = "$project.rootDir/config"
     LOCAL_CONFIG_FILE = "$CONFIG_DIR/local_config.yml"
-    LOCAL_APP_BIN_PATH = "$project.buildDir/libs/$APP_BIN_NAME"
+    LOCAL_APP_BIN_PATH = "build/libs/$APP_BIN_NAME"
     MAIN_CLASS = "Main"
 
     properties.each { prop ->
@@ -56,6 +56,7 @@ sourceSets {
 
 dependencies {
     compile "io.dropwizard:dropwizard-core:1.0.2"
+
     testCompile "junit:junit:4.12"
     testCompile "com.google.truth:truth:0.30"
 }
@@ -75,8 +76,8 @@ run {
     args 'server', LOCAL_CONFIG_FILE
 }
 
-runShadow {
-    mainClassName = MAIN_CLASS
-    args 'server', LOCAL_CONFIG_FILE
-}
+//runShadow {
+//    mainClassName = MAIN_CLASS
+//    args 'server', LOCAL_CONFIG_FILE
+//}
 
